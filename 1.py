@@ -1,6 +1,14 @@
-
 import numpy as np
 from scipy.optimize import fmin
+import matplotlib.pyplot as plt
+
+a = np.linspace(-4,4,100)
+x,y = np.meshgrid(a,a)
+z = 8*x*y -4*(x**2)*y -2*x*(y**2) + (x**2)*(y**2)
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+cpf = ax.contourf(x,y,z, 10)
 
 x,y = 0.5,0.5
 
@@ -20,5 +28,5 @@ optimization = fmin(optimize,Argument,xtol=0.001)
 
 
 print(optimization)
-
+plt.show()
 
