@@ -2,7 +2,7 @@ import numpy as np
 from scipy.optimize import fmin
 import matplotlib.pyplot as plt
 
-a = np.linspace(-4,4,100)
+a = np.linspace(-5,5,100)
 x,y = np.meshgrid(a,a)
 z = 8*x*y -4*(x**2)*y -2*x*(y**2) + (x**2)*(y**2)
 fig = plt.figure()
