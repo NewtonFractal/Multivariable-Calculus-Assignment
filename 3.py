@@ -13,28 +13,14 @@ solution= fsolve(equation_solver,0)
 
 print(solution)
 
+x = np.linspace(-6, 6, 300)
+y = np.linspace(-6, 6, 300)
+
+X, Y = np.meshgrid(x, y)
+Z = X**2+Y**2
+
 fig = plt.figure()
-ax = fig.gca(projection='3d')
-
-
-X = np.arange(-5, 5, 0.25)
-xlen = len(X)
-Y = np.arange(-5, 5, 0.25)
-ylen = len(Y)
-X, Y = np.meshgrid(X, Y)
-
-Z = X*Y
-
-colortuple = ('y', 'b')
-colors = np.empty(X.shape, dtype=str)
-for y in range(ylen):
-    for x in range(xlen):
-        colors[x, y] = colortuple[(x + y) % len(colortuple)]
-
-surf = ax.plot_surface(X, Y, Z, facecolors=colors, linewidth=0)
-
-
-ax.set_zlim(-5, 5)
-ax.w_zaxis.set_major_locator(LinearLocator(6))
+ax = plt.axes(projection="3d")
+ax.plot_wireframe(X, Y, Z, color='green')
 
 plt.show()
